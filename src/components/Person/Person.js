@@ -1,38 +1,23 @@
-import { useState, useEffect } from "react";
+import React, { useEffect, useReducer, useRef } from "react";
+import PropTypes from "prop-types";
 
-import "./Person.css";
+import "./person.css";
+import personReducer from "../../reducers/person";
 
 const Person = (props) => {
-    const [persons, setPersons] = useState([]);
-    const [inpName, setInpName] = useState('');
-    const [inpAge, setInpAge] = useState('');
+    const [persons, dispatch] = useReducer(personReducer, props.person);
+
+    const refName = useRef();
+    const refAge = useRef();
+    const refGender = useRef();
 
     useEffect(() => {
-        setPersons(props?.person);
-    }, [props?.person]);
-
-    const handleAdd = () => {
-        if (validator) {
-            if (persons.length > 0) {
-                setPersons([...persons, { id: persons.length + 1, name: inpName, age: inpAge }]);
-            } else {
-                setPersons([{ id: persons.length + 1, name: inpName, age: inpAge }]);
-            }
-        }
-    }
-
-    const handleRemove = (id) => {
-        setPersons(persons?.filter(x => x.id !== id));
-    }
-
-    const validator = (() => {
-        if (inpName !== '' && inpAge !== '') {
-            if (inpName.length > 3 && inpAge.length > 1) {
-                return true;
-            }
-        }
-        return false;
-    })();
+        document.title = `Person (${persons.length})`;
+        refName.current.value = '';
+        refAge.current.value = '';
+        refGender.current.value = 'male';
+        refName.current.focus();
+    }, [persons]);
 
     return (
         <div className="Person">
@@ -44,7 +29,7 @@ const Person = (props) => {
                     name="txtName"
                     type="text"
                     placeholder="Nhập họ tên"
-                    onChange={(e) => setInpName(e.target.value)}
+                    ref={refName}
                 />
                 <label className="Person__input-title"
                     htmlFor="txtAge"
@@ -53,28 +38,50 @@ const Person = (props) => {
                     name="txtAge"
                     type="text"
                     placeholder="Nhập số tuổi"
-                    onChange={(e) => setInpAge(e.target.value)}
+                    ref={refAge}
                 />
+                <label className="Person__input-title"
+                    htmlFor="cmbGender"
+                >Giới tính:</label>
+                <select className="Person__input-select"
+                    name="cmbGender"
+                    ref={refGender}
+                >
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                </select>
                 <input className="Person__input-btn"
                     name="btnAdd"
                     type="button"
                     value="Thêm"
-                    onClick={handleAdd}
+                    onClick={() => dispatch({
+                        type: 'add',
+                        personNew: {
+                            id: persons.length + 1,
+                            name: refName.current.value,
+                            age: refAge.current.value,
+                            gender: refGender.current.value,
+                        }
+                    })}
                 />
             </div>
             <ul className="Person__list">
                 {persons?.map((person) =>
-                    <li key={person.id} className="Person__list-item">
+                    <li key={person.id} className={"Person__list-item " + person.gender}>
                         <div className="Person__list-item-name">{person.name}</div>
                         <div className="Person__list-item-age">{person.age}</div>
                         <button className="Person__list-item-btn"
-                            onClick={() => handleRemove(person.id)}
+                            onClick={() => dispatch({ type: 'remove', id: person.id })}
                         >Xóa</button>
                     </li>
                 )}
             </ul>
-        </div>
+        </div >
     )
+}
+
+Person.propTypes = {
+    person: PropTypes.array,
 }
 
 export default Person;

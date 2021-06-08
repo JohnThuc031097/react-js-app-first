@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import './CountNumber.css';
 
@@ -17,6 +18,9 @@ const CountNumber = (props) => {
             </div>
         </div>
     );
+}
+CountNumber.propTypes = {
+    initValue: PropTypes.number,
 }
 
 export default CountNumber;

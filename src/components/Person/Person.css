@@ -10,7 +10,6 @@
 .Person__input-title {
     font-size: 24px;
     font-weight: 600;
-    margin-top: 5px;
 }
 .Person__input-text {
     font-size: 14px;
@@ -18,19 +17,33 @@
     margin-bottom: 10px;
     padding: 0 5px;
 }
+.Person__input-select {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+}
 .Person__input-btn{
+    background-color: rgb(235, 64, 12);
+    color: #fff;
     font-size: 30px;
     font-family: 600;
     text-transform: uppercase;
     margin-top: 10px;
     padding: 10px 0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.Person__input-btn:hover{
+    opacity: 0.8;
 }
 .Person__list {
     display: flex;
     flex-direction: column;
     text-decoration: none;
     width: 450px;
-    height: 250px;
+    height: 300px;
+    margin-top: 30px;
     margin-left: 10px;
     overflow-y: scroll;
     border: 1px solid #000;
@@ -41,6 +54,12 @@
     line-height: 40px;
     margin: 10px;
     border: 1px solid #000;
+}
+.Person__list-item.male{
+    background-color: rgba(11, 11, 226, 0.1);
+}
+.Person__list-item.female{
+    background-color: rgba(18, 194, 91, 0.1);
 }
 .Person__list-item:hover{
     background-color: rgba(0, 0, 0, 0.1);
@@ -62,6 +81,5 @@
     cursor: pointer;
 }
 .Person__list-item-btn:hover{
-    background-color: #fff;
-    color: rgb(235, 64, 12);
+    opacity: 0.8;
 }

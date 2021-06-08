@@ -1,13 +1,17 @@
 import './App.css';
-import Person from "./components/Person";
+// import CountNumber from "./components/CountNumber/CountNumber";
+import Person from "./components/Person/Person";
 
 function App() {
   return (
     <>
       <div className="App">
-        <Person name="Thức" age="24">
-          <h1>Tuổi</h1>
-        </Person>
+        {/* <CountNumber initValue="0" /> */}
+        <Person person={[{
+          id: 1,
+          name: 'Thức',
+          age: '24'
+        }]} />
       </div>
     </>
   );

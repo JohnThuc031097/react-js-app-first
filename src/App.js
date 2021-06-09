@@ -1,20 +1,22 @@
 import React from "react";
-// import CountNumber from "./components/CountNumber/CountNumber";
-import Person from "./components/Person/person";
-import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import HomeView from "./home";
+import AboutView from "./about";
 
 function App() {
-  return (
-    <div className="App">
-      {/* <CountNumber initValue="0" /> */}
-      <Person person={[{
-        id: 1,
-        name: 'Thức',
-        age: '24',
-        gender: 'male',
-      }]} />
-    </div>
-  );
+    return (
+        <BrowserRouter>
+            <Switch>
+                <Route path="/">
+                    <HomeView />
+                </Route>
+                <Route path="/about">
+                    <AboutView />
+                </Route>
+            </Switch>
+        </BrowserRouter>
+    );
 }
 
 export default App;

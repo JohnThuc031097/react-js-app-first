@@ -1,19 +1,13 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-import HomeView from "./home";
-import AboutView from "./about";
+import { BrowserRouter, Switch } from "react-router-dom";
+// Utils
+import { RouteInit } from "./utils/route";
 
 function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/">
-                    <HomeView />
-                </Route>
-                <Route path="/about">
-                    <AboutView />
-                </Route>
+                <RouteInit />
             </Switch>
         </BrowserRouter>
     );

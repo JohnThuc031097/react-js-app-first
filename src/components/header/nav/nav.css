@@ -1,0 +1,15 @@
+.header__nav{
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+}
+.header__nav-item{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    /* padding: 0 20px; */
+}
+.header__nav-item:hover{
+    background-color: rgb(112, 112, 112);
+}

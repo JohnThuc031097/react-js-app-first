@@ -5,10 +5,20 @@
     list-style: none;
     margin: 0 auto;
     cursor: pointer;
-    &.auth {
-        .header__nav-item {
-            text-transform: none;
-        }
+    &.list-child {
+        position: absolute;
+        display: flex;
+    }
+    &.display-col {
+        flex-direction: column;
+    }
+    &.display-row {
+        flex-direction: row;
+    }
+    .header__nav-item-dot {
+        background-color: #fff;
+        width: 2px;
+        height: 25px;
     }
     .header__nav-item {
         color: #fff;
@@ -18,6 +28,9 @@
         text-align: center;
         width: 100px;
         padding: 15px 10px;
+        &.list-child {
+            position: relative;
+        }
         &:hover {
             background-color: rgb(112, 112, 112);
         }
@@ -26,9 +39,9 @@
             text-decoration: none;
         }
     }
-    .header__nav-item-dot {
-        background-color: #fff;
-        width: 2px;
-        height: 30px;
+}
+.header__nav--auth {
+    .header__nav-item {
+        text-transform: none;
     }
 }

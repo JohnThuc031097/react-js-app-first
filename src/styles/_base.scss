@@ -1,11 +1,10 @@
-.text-link-none {
-    text-decoration: none;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.list-style-none {
+@mixin nobita-list($position: "initial", $type: "column") {
+    // position: absolute;
+    position: $position;
+    display: flex;
+    flex-direction: $type;
     list-style: none;
+}
+
+@mixin nobita-list-item() {
 }

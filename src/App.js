@@ -1,13 +1,15 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
+// Routes
+import Routes from "./routers";
 // Utils
-import { RouteInit } from "./utils/route";
+import { RouteLoad } from "./utils/route";
 
 function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <RouteInit />
+                <RouteLoad routes={Routes} />
             </Switch>
         </BrowserRouter>
     );

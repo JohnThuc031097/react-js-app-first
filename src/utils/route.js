@@ -1,14 +1,20 @@
 import React from "react";
 import { Route } from "react-router-dom";
-// Routes
-import Routes from "../routers";
 
-export function RouteInit() {
-    return Routes.map((route, i) =>
-        <Route key={i}
+export function RouteLoad({ routes }) {
+    return routes.map((route, i) => (
+        <RouteSub key={i} {...route} />
+    ));
+}
+
+function RouteSub(route) {
+    return (
+        <Route
             exact
             path={route.path}
-            render={() => <route.component routes={route.routesChild} />}
+            render={(routeProps) => (
+                <route.component {...routeProps} routes={route.routes} />
+            )}
         />
     );
 }

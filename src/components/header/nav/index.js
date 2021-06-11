@@ -11,11 +11,15 @@ export default function Nav() {
                 <li className="header__nav-item">
                     <Link to="/about">About</Link>
                 </li>
-                <li className="header__nav-item">
-                    <Link to="/courses">Courses</Link>
+                <li className="header__nav-item has-list">
+                    Courses
+                    <ul className="header__nav list-child display-col">
+                        <li className="header__nav-item">Free</li>
+                        <li className="header__nav-item">Fee</li>
+                    </ul>
                 </li>
             </ul>
-            <ul className="header__nav auth">
+            <ul className="header__nav--auth">
                 <li className="header__nav-item">
                     <Link to="/auth/login">Login</Link>
                 </li>

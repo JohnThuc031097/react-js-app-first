@@ -5,7 +5,7 @@ import CoursesFee from "../pages/courses/components/courses-fee";
 const CourseRoute = {
     path: '/courses',
     component: Courses,
-    routesChild: [
+    routes: [
         {
             path: '/courses/free',
             component: CoursesFree

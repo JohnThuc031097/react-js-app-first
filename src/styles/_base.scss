@@ -1,15 +1,15 @@
 // Functions
 
 // Mixin
-@mixin List($type: row) {
+@mixin List($type: row, $justify-content: center, $align-items: center) {
     display: flex;
     flex-direction: $type;
-    justify-content: center;
-    align-items: center;
+    justify-content: $justify-content;
+    align-items: $align-items;
     list-style: none;
 }
 
-@mixin Item($color: #fff, $fontSize: 16px, $fontWeight: 400, $textAlign: center) {
+@mixin Item($color: #fff, $textAlign: center, $fontSize: 16px, $fontWeight: 400) {
     color: $color;
     font-size: $fontSize;
     font-weight: $fontWeight;
@@ -23,11 +23,12 @@
 }
 
 // @mixin PosAbsolute($top: 0, $left: 0, $right: 0, $bottom: 0) {
-@mixin Position($type, $pos) {
+@mixin Position($type, $pos: 100% 0 auto auto) {
     position: $type;
-    @if ($pos) {
-        @each $name, $val in $pos {
-            #{$name}: $val;
-        }
+    @if ($type == absolute) {
+        top: nth($pos, 1);
+        left: nth($pos, 2);
+        right: nth($pos, 3);
+        bottom: nth($pos, 4);
     }
 }

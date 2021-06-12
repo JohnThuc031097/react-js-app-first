@@ -1,9 +1,8 @@
 // Component
 import Home from "../pages";
 import About from "../pages/about";
-
 // Routes
-import CourseRoute from "./course";
+import RouteCourse from "../routers/course";
 
 const Routes = [
     {
@@ -14,7 +13,7 @@ const Routes = [
         path: '/about',
         component: About
     },
-    CourseRoute
+    ...RouteCourse,
 ]
 
 export default Routes;

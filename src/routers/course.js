@@ -1,20 +1,21 @@
-import Courses from "../pages/courses";
-import CoursesFree from "../pages/courses/components/courses-free";
-import CoursesFee from "../pages/courses/components/courses-fee";
+import Course from "../pages/course";
+import CourseReviewFree from "../pages/course/review/free";
+import CourseReviewFee from "../pages/course/review/fee";
 
-const CourseRoute = {
-    path: '/courses',
-    component: Courses,
-    routes: [
-        {
-            path: '/courses/free',
-            component: CoursesFree
-        },
-        {
-            path: '/courses/fee',
-            component: CoursesFee
-        }
-    ]
-}
+const CourseRoute = [
+    {
+        path: '/courses',
+        component: Course,
+        routes: [/* Login -> Courses of user */]
+    },
+    {
+        path: '/courses/review/free',
+        component: CourseReviewFree,
+    },
+    {
+        path: '/courses/review/fee',
+        component: CourseReviewFee,
+    }
+]
 
 export default CourseRoute;

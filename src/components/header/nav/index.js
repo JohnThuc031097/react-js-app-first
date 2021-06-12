@@ -12,10 +12,14 @@ export default function Nav() {
                     <Link to="/about">About</Link>
                 </li>
                 <li className="nav-item has-list">
-                    Courses
+                    <Link to="/courses">Courses</Link>
                     <ul className="nav-item__list">
-                        <li className="nav-item__child">Free</li>
-                        <li className="nav-item__child">Fee</li>
+                        <li className="nav-item__child">
+                            <Link to="/courses/review/free">Free</Link>
+                        </li>
+                        <li className="nav-item__child">
+                            <Link to="/courses/review/fee">Fee</Link>
+                        </li>
                     </ul>
                 </li>
             </ul>

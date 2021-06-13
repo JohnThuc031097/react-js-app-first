@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-const DefaultPropTypes = {
+const ProvidePropTypes = {
     children: PropTypes.any,
 }
 
-export default DefaultPropTypes;
+export default ProvidePropTypes;

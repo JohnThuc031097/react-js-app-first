@@ -1,11 +1,11 @@
 import React from "react";
 // PropTypes
-import PropTypes from "../../prop-types";
+import RoutePropTypes from "../../prop-types/route";
 
-export default function Course({ routes }) {
+export default function CoursePage({ routes }) {
     console.log(routes);
     return (
         <h1>Courses</h1>
     );
 }
-Course.propTypes = PropTypes.Route;
+CoursePage.propTypes = RoutePropTypes;

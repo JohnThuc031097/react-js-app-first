@@ -1,19 +1,21 @@
-// Component
-import Home from "../pages";
-import About from "../pages/about";
+// Pages
+import HomePage from "../pages";
+import AboutPage from "../pages/about";
 // Routes
-import RouteCourse from "../routers/course";
+import AuthRoute from "../routers/auth";
+import CourseRoute from "../routers/course";
 
 const Routes = [
     {
         path: ['/', '/home'],
-        component: Home
+        component: HomePage
     },
     {
         path: '/about',
-        component: About
+        component: AboutPage
     },
-    ...RouteCourse,
+    ...AuthRoute,
+    ...CourseRoute,
 ]
 
 export default Routes;

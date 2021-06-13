@@ -1,15 +1,15 @@
 // Pages
 import { LoginPage, RegisterPage } from "../pages/auth";
 
-const AuthRoute = [
-    {
-        path: '/login',
+const AuthRoute = {
+    LoginRoute: {
+        path: '/auth/login',
         component: LoginPage
     },
-    {
-        path: '/register',
+    RegisterRoute: {
+        path: '/auth/register',
         component: RegisterPage
-    },
-];
+    }
+};
 
 export default AuthRoute;

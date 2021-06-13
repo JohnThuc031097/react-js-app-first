@@ -2,11 +2,12 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 export function RouteLoad({ routes }) {
-    return (
-        routes.map((route, i) => (
-            <RouteSub key={i} {...route} />
-        ))
-    );
+    return (() => {
+        for (const keyName in routes) {
+            console.log(routes[keyName]);
+            <RouteSub key={keyName} {...routes[keyName]} />
+        }
+    });
 }
 
 function RouteSub(route) {

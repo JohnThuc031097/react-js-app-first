@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// Hooks
+import { useAuth } from "../../../../hooks";
 
 export default function Nav() {
+    const auth = useAuth();
     return (
         <>
             <ul className="header__nav">
@@ -24,13 +27,27 @@ export default function Nav() {
                 </li>
             </ul>
             <ul className="header__nav auth">
-                <li className="nav-item">
-                    <Link to="/auth/login">Login</Link>
-                </li>
-                <li className="space-dot"></li>
-                <li className="nav-item">
-                    <Link to="/auth/register">Register</Link>
-                </li>
+                {() => {
+                    if (auth.isAuthenticated) {
+                        return (
+                            <>
+                                <li className="nav-item">{auth.user.username}</li>
+                            </>
+                        );
+                    } else {
+                        return (
+                            <>
+                                <li className="nav-item">
+                                    <Link to="/auth/login">Login</Link>
+                                </li>
+                                <li className="space-dot"></li>
+                                <li className="nav-item">
+                                    <Link to="/auth/register">Register</Link>
+                                </li>
+                            </>
+                        )
+                    }
+                }}
             </ul>
         </>
     );

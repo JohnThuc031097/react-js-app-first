@@ -5,17 +5,17 @@ import AboutPage from "../pages/about";
 import AuthRoute from "../routers/auth";
 import CourseRoute from "../routers/course";
 
-const Routes = [
-    {
+const Routes = {
+    Default: {
         path: ['/', '/home'],
         component: HomePage
     },
-    {
+    AboutRoute: {
         path: '/about',
         component: AboutPage
     },
     ...AuthRoute,
     ...CourseRoute,
-]
+}
 
 export default Routes;

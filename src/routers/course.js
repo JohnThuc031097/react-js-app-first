@@ -1,12 +1,12 @@
 // Pages
 import CoursePage from "../pages/course";
 
-const CourseRoute = [
-    {
+const CourseRoute = {
+    Default: {
         path: '/courses',
         component: CoursePage,
         routes: [/* Login -> Courses of user */]
-    },
-]
+    }
+}
 
 export default CourseRoute;

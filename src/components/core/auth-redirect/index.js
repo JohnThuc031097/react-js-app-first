@@ -4,6 +4,9 @@ import { Route, Redirect } from "react-route-dom";
 import { useAuth } from "../../../hooks";
 // PropTypes
 import DefautPropTypes from "../../../prop-types";
+// Routes
+// import {  } from "../../../routers";
+
 
 export default function AuthRedirect({ children, ...props }) {
     const auth = useAuth();

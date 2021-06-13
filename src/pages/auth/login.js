@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, useLocation } from "react-route-dom";
+import { useHistory, useLocation } from "react-router-dom";
 // Hooks
 import { useAuth } from "../../hooks";
 
@@ -8,9 +8,13 @@ export default function LoginPage() {
     const location = useLocation();
     const auth = useAuth();
 
-    const redirectPage = location.state || '/';
+    const { from } = location.state || { from: { pathname: '/' } };
     const handleLogin = () => {
         auth.signIn();
-        history.replace(redirectPage)
+        history.replace(from)
     }
+
+    return (
+        <></>
+    );
 }

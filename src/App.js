@@ -5,14 +5,18 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import Routes from "./routers";
 // Utils
 import { RouteLoad } from "./utils/route";
+// Providers
+import { AuthProvider } from "./providers";
 
 function App() {
     return (
-        <BrowserRouter>
-            <Switch>
-                <RouteLoad routes={Routes} />
-            </Switch>
-        </BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <Switch>
+                    <RouteLoad routes={Routes} />
+                </Switch>
+            </BrowserRouter>
+        </AuthProvider>
     );
 }
 

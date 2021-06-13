@@ -1,0 +1,26 @@
+#formLogin {
+    @include Form();
+    margin: 0 auto;
+    margin-top: 50px;
+    .form-title {
+        @include FormTitle(30px);
+    }
+    .form-group {
+        @include FormGroup();
+        .form-label {
+            @include FormLabel();
+        }
+        .form-input {
+            @include FormInput();
+            &.btn {
+                background-color: #238636;
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}

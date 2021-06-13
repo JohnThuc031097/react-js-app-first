@@ -1,8 +1,8 @@
 // Pages
-import LoginPage from "./login";
-import RegisterPage from "./register";
+import AuthLoginPage from "./login";
+import AuthRegisterPage from "./register";
 
 export {
-    LoginPage,
-    RegisterPage
+    AuthLoginPage,
+    AuthRegisterPage
 }

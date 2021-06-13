@@ -1,33 +1,38 @@
 import { useState } from "react";
 // Functions
-import SignIn from "./signin";
-import SignOut from "./signout";
+import { AuthSignIn, AuthSignOut } from "../../components/core/auth";
 
 export default function useProvideAuth() {
-    const [isAuthenticed, setAuthenticed] = useState(false);
+    const [isAuthenticated, setAuthenticated] = useState(false);
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
 
-    const signIn = SignIn()
-        .then(user => {
-            setAuthenticed(true);
-            setUser(user);
-        })
-        .catch(error => {
-            setError(error);
-        });
+    const signIn = async (callback) => {
+        return AuthSignIn()
+            .then(user => {
+                setAuthenticated(true);
+                setUser(user);
+            })
+            .catch(error => {
+                setError(error);
+            })
+            .finally(callback);
+    }
 
-    const signOut = SignOut()
-        .then(() => {
-            setAuthenticed(false);
-            setUser(null);
-        })
-        .catch(error => {
-            setError(error);
-        });
+    const signOut = (callback) => {
+        return AuthSignOut()
+            .then(() => {
+                setAuthenticated(false);
+                setUser(null);
+            })
+            .catch(error => {
+                setError(error);
+            })
+            .finally(callback);
+    }
 
     return {
-        isAuthenticed,
+        isAuthenticated,
         error,
         user,
         signIn,

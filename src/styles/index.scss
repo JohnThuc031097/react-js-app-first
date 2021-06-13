@@ -1,6 +1,9 @@
 @import "base";
-@import "header";
-@import "nav";
+// Components
+@import "./components/header";
+@import "./components/nav";
+// Pages
+@import "./pages/auth";
 
 * {
     margin: 0;

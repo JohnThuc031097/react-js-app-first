@@ -2,7 +2,7 @@
 import CoursePage from "../pages/course";
 
 const CourseRoute = {
-    Default: {
+    CourseRoute: {
         path: '/courses',
         component: CoursePage,
         routes: [/* Login -> Courses of user */]

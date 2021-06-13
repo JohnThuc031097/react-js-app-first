@@ -1,26 +1,23 @@
 import React from "react";
-import { Route, Redirect } from "react-route-dom";
+import { Route, Redirect } from "react-router-dom";
 // Hooks
-import { useAuth } from "../../../hooks";
+import { useAuth } from "../../../../hooks";
 // PropTypes
-import DefautPropTypes from "../../../prop-types";
-// Routes
-// import {  } from "../../../routers";
+import DefautPropTypes from "../../../../prop-types";
 
-
-export default function AuthRedirect({ children, ...props }) {
+export default function AuthRedirect({ children, noAuthToPath, ...props }) {
     const auth = useAuth();
     return (
         <Route
             {...props}
             render={({ location }) => {
-                if (auth.isAuthenticed) {
+                if (auth.isAuthenticated) {
                     return children;
                 } else {
                     return (
                         <Redirect
                             to={{
-                                pathname: '/login',
+                                pathname: noAuthToPath,
                                 state: { from: location }
                             }}
                         />

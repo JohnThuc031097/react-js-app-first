@@ -1,5 +1,5 @@
-export default function signin(resolve, reject) {
-    return new Promise(() => {
+export default function AuthSignIn(resolve, reject) {
+    return new Promise((resolve, reject) => {
         console.log('Logging ...');
         try {
             setTimeout(() => {

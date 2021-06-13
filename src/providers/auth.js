@@ -5,9 +5,9 @@ import { authContext } from "../contexts";
 // Hooks
 import useProvideAuth from "../hooks/useProvideAuth";
 // PropTypes
-import ProvidePropTypes from "../prop-types/provide";
+import PropTypes from "../prop-types";
 
-export default function ProvideAuth({ children }) {
+export default function AuthProvider({ children }) {
     const auth = useProvideAuth();
     return (
         <authContext.Provider value={auth}>
@@ -15,4 +15,4 @@ export default function ProvideAuth({ children }) {
         </authContext.Provider>
     )
 }
-ProvideAuth.propTypes = ProvidePropTypes;
+AuthProvider.propTypes = PropTypes;

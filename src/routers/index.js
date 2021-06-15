@@ -1,23 +1,20 @@
-// Pages
-import HomePage from "../pages";
-import AboutPage from "../pages/about";
+// Services
+import { PageServices } from "../services";
 // Routes
-import AuthRoute from "../routers/auth";
-import UserRoute from "../routers/user";
-import CourseRoute from "../routers/course";
+import AuthRoute from "./auth";
+import UserRoute from "./user";
 
 const Routes = {
     IndexRoute: {
         path: ['/', '/home'],
-        component: HomePage
+        component: PageServices.HomePage
     },
     AboutRoute: {
         path: '/about',
-        component: AboutPage
+        component: PageServices.AboutPage
     },
     ...AuthRoute,
     ...UserRoute,
-    ...CourseRoute,
 }
 
 export default Routes;

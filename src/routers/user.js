@@ -1,12 +1,12 @@
-// Pages
-import { UserProfilePage } from "../pages/user";
+// Services
+import { PageServices } from "../services";
 
 const UserRoute = {
     UserProfileRoute: {
         auth: true,
         path: '/user/profile',
         pathAuth: '/auth/login',
-        component: UserProfilePage
+        component: PageServices.User.UserProfilePage
     }
 };
 

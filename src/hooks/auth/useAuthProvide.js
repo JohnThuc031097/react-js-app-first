@@ -1,14 +1,14 @@
 import { useState } from "react";
 // Functions
-import { AuthSignIn, AuthSignOut } from "../../components/core/auth";
+import { SignIn, SignOut } from "./components";
 
-export default function useProvideAuth() {
+export default function useAuthProvide() {
     const [isAuthenticated, setAuthenticated] = useState(false);
     const [error, setError] = useState(null);
     const [user, setUser] = useState(null);
 
     const signIn = async (callback) => {
-        return AuthSignIn()
+        return SignIn()
             .then(user => {
                 setAuthenticated(true);
                 setUser(user);
@@ -20,7 +20,7 @@ export default function useProvideAuth() {
     }
 
     const signOut = (callback) => {
-        return AuthSignOut()
+        return SignOut()
             .then(() => {
                 setAuthenticated(false);
                 setUser(null);

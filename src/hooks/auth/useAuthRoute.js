@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 // Hooks
-import { useAuth } from "../../../../hooks";
+import { HookServices } from "../../services";
 
-export default function AuthRedirect(route) {
-    const auth = useAuth();
+export default function AuthRoute(route) {
+    const auth = HookServices.Auth.useAuth();
     return (
         <Route
             exact

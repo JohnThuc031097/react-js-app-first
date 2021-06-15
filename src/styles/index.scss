@@ -1,10 +1,3 @@
-@import "base";
-// Components
-@import "./components/header";
-@import "./components/nav";
-// Pages
-@import "./pages/auth";
-
 * {
     margin: 0;
     padding: 0;
@@ -28,6 +21,12 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-.space-dot {
-    @include SpaceDot();
-}
+@import "base";
+// Components Public
+@import "./components/public/header";
+@import "./components/public/nav";
+@import "./components/public/container";
+// Components Private
+
+// Pages
+@import "./pages/auth";

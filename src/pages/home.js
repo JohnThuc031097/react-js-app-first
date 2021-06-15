@@ -2,12 +2,13 @@ import React from "react";
 // Components UI
 import { ComponentServices } from "../services";
 
-export default function AboutPage() {
+export default function HomePage() {
+
     return (
         <>
             <ComponentServices.Public.Header />
             <ComponentServices.Public.Container>
-                <h1>ABOUT</h1>
+                <h1>HOME</h1>
             </ComponentServices.Public.Container>
         </>
     );

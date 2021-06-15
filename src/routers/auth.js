@@ -1,18 +1,18 @@
-// Pages
-import { AuthLoginPage, AuthRegisterPage } from "../pages/auth";
+// Services
+import { PageServices } from "../services";
 
 const AuthRoute = {
     AuthLoginRoute: {
         auth: true,
         exception: true,
         path: '/auth/login',
-        component: AuthLoginPage
+        component: PageServices.Auth.AuthLoginPage
     },
     AuthRegisterRoute: {
         auth: true,
         exception: true,
         path: '/auth/register',
-        component: AuthRegisterPage
+        component: PageServices.Auth.AuthRegisterPage
     }
 };
 

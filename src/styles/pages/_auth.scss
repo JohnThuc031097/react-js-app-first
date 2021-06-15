@@ -1,17 +1,14 @@
 #formLogin {
-    @include Form();
-    margin: 0 auto;
+    $nameForm: login;
+    @include Form($nameForm);
+    @include FormGroup($nameForm);
+    @include FormTitle($nameForm, 30px);
+    @include FormLabel($nameForm);
+    @include FormInput($nameForm);
+
     margin-top: 50px;
-    .form-title {
-        @include FormTitle(30px);
-    }
-    .form-group {
-        @include FormGroup();
-        .form-label {
-            @include FormLabel();
-        }
-        .form-input {
-            @include FormInput();
+    .form-#{$nameForm}__group {
+        .form-#{$nameForm}__input {
             &.btn {
                 background-color: #238636;
                 color: #fff;

@@ -1,16 +1,16 @@
-import React, { useMemo } from "react";
-import { useAuth } from "../hooks";
-// Components
-import { AuthRedirect } from "./../components/core/auth";
+import React, { useMemo, useCallback } from "react";
+// Services
+import { HookServices } from "../services";
 
 export function RouteLoad({ routes }) {
-    const auth = useAuth();
-    const RenderRoute = (routes) => {
+    const auth = HookServices.Auth.useAuth();
+    const RenderRoute = useCallback((routes) => {
+        const AuthRoute = HookServices.Auth.useAuthRoute;
         let routesArray = [];
         for (const key in routes) {
             routesArray.push(routes[key]);
         }
-        return routesArray.map((route, i) => (<AuthRedirect key={i} {...route} />));
-    }
+        return routesArray.map((route, i) => (<AuthRoute key={i} {...route} />));
+    }, []);
     return useMemo(() => RenderRoute(routes), [auth.isAuthenticated]);
 }

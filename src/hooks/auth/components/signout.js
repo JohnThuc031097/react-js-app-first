@@ -1,4 +1,4 @@
-export default function AuthSignOut(resolve, reject) {
+export default function SignOut(resolve, reject) {
     return new Promise((resolve, reject) => {
         console.log('logging out ...');
         try {

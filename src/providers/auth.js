@@ -1,18 +1,17 @@
 
 import React from "react";
-// Contexts
-import { authContext } from "../contexts";
-// Hooks
-import useProvideAuth from "../hooks/useProvideAuth";
-// PropTypes
-import PropTypes from "../prop-types";
+import PropTypes from "prop-types";
+// Services
+import { ContextServices, HookServices } from "../services";
 
 export default function AuthProvider({ children }) {
-    const auth = useProvideAuth();
+    const auth = HookServices.Auth.useAuthProvide();
     return (
-        <authContext.Provider value={auth}>
+        <ContextServices.AuthContext.Provider value={auth}>
             {children}
-        </authContext.Provider>
+        </ContextServices.AuthContext.Provider>
     )
 }
-AuthProvider.propTypes = PropTypes;
+AuthProvider.propTypes = {
+    children: PropTypes.any,
+};

@@ -3,6 +3,7 @@
     margin: 0 auto;
     cursor: pointer;
     &.auth {
+        @include SpaceDot();
         .nav-item {
             text-transform: none;
         }

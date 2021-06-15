@@ -1,8 +1,6 @@
 
-import useAuth from "./useAuth";
-import useProvideAuth from "./useProvideAuth";
+import * as Auth from "./auth";
 
 export {
-    useAuth,
-    useProvideAuth,
+    Auth
 }

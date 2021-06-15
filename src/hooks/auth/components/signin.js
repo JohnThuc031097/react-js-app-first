@@ -1,4 +1,4 @@
-export default function AuthSignIn(resolve, reject) {
+export default function SignIn(resolve, reject) {
     return new Promise((resolve, reject) => {
         console.log('Logging ...');
         try {

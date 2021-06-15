@@ -17,44 +17,55 @@
 }
 
 @mixin SpaceDot($color: #fff, $w: 2px, $h: 25px) {
-    background-color: $color;
-    width: $w;
-    height: $h;
+    .space-dot {
+        background-color: $color;
+        width: $w;
+        height: $h;
+    }
 }
-@mixin Form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    padding: 10px 20px;
-    border: 1px solid rgb(233, 224, 224);
-    border-radius: 3px;
+@mixin Form($name) {
+    .form-#{$name} {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        padding: 10px 20px;
+        border: 1px solid rgb(233, 224, 224);
+        border-radius: 3px;
+    }
 }
-@mixin FormTitle($font-size: 20px, $font-weight: 600) {
-    font-size: $font-size;
-    font-weight: $font-weight;
-    margin: 20px 0;
+@mixin FormTitle($name, $font-size: 20px, $font-weight: 600) {
+    .form-#{$name}__title {
+        font-size: $font-size;
+        font-weight: $font-weight;
+        margin: 20px 0;
+    }
 }
-@mixin FormGroup($width: 300px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 10px;
+@mixin FormGroup($name, $width: 300px) {
+    .form-#{$name}__group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
-@mixin FormLabel {
-    font-weight: 600;
-    margin: 5px 0;
+@mixin FormLabel($name) {
+    .form-#{$name}__label {
+        font-weight: 600;
+        margin: 5px 0;
+    }
 }
-@mixin FormInput($font-size: 14px) {
-    font-size: $font-size;
-    padding: 10px 10px;
-    border: 1px solid rgb(226, 221, 221);
-    border-radius: 3px;
+@mixin FormInput($name, $font-size: 14px) {
+    .form-#{$name}__input {
+        font-size: $font-size;
+        padding: 10px 10px;
+        border: 1px solid rgb(226, 221, 221);
+        border-radius: 3px;
+    }
 }
 
-// @mixin PosAbsolute($top: 0, $left: 0, $right: 0, $bottom: 0) {
 @mixin Position($type, $pos: 100% 0 auto auto) {
     position: $type;
     @if ($type == absolute) {

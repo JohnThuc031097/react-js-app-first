@@ -2,29 +2,43 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 // Hooks
 import { useAuth } from "../../../../hooks";
-// PropTypes
-import DefautPropTypes from "../../../../prop-types";
 
-export default function AuthRedirect({ children, noAuthToPath, ...props }) {
+export default function AuthRedirect(route) {
     const auth = useAuth();
     return (
         <Route
-            {...props}
-            render={({ location }) => {
-                if (auth.isAuthenticated) {
-                    return children;
-                } else {
-                    return (
-                        <Redirect
-                            to={{
-                                pathname: noAuthToPath,
-                                state: { from: location }
-                            }}
-                        />
-                    )
+            exact
+            path={route.path}
+            render={(propRoute) => {
+                if (route.auth) {
+                    if (!auth.isAuthenticated) {
+                        if (!route.exception) {
+                            return (
+                                <Redirect
+                                    to={{
+                                        pathname: route.pathAuth,
+                                        state: { from: propRoute.location }
+                                    }}
+                                />
+                            );
+                        }
+                    } else {
+                        if (route.exception) {
+                            return (
+                                <Redirect
+                                    to={{
+                                        pathname: '/',
+                                        state: { from: propRoute.location }
+                                    }}
+                                />
+                            )
+                        }
+                    }
                 }
+                return (
+                    <route.component {...propRoute} routes={route.routes} />
+                );
             }}
         />
     );
 }
-AuthRedirect.propTypes = DefautPropTypes;

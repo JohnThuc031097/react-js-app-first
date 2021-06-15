@@ -1,8 +1,7 @@
 import React from "react";
-import { useHistory, useLocation } from "react-router-dom";
-// Hooks
-import { useAuth } from "../../hooks";
 
 export default function UserProfilePage() {
-
+    return (
+        <h1>This is Profile page</h1>
+    );
 }

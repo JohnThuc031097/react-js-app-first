@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const RoutePropTypes = {
-    routes: PropTypes.array,
+    routes: PropTypes.object,
 }
 
 export default RoutePropTypes;

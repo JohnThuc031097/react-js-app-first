@@ -4,8 +4,8 @@ export default function AuthSignIn(resolve, reject) {
         try {
             setTimeout(() => {
                 console.log('Logged !');
-                resolve({ username: 'Admin' });
-            }, 2000);
+                resolve({ username: 'ThucNobita' });
+            }, 1000);
         } catch (error) {
             reject(error);
         }

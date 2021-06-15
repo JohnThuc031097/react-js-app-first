@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useCallback, useMemo, useState } from "react";
+// import { useCallback } from "react-hooks";
+import { Link, useHistory } from "react-router-dom";
 // Hooks
 import { useAuth } from "../hooks";
 // Components
@@ -8,7 +9,42 @@ import Nav from "./../components/ui/nav";
 
 export default function HomePage() {
     const auth = useAuth();
-    console.log(auth);
+    const history = useHistory();
+
+    const handleLogout = useCallback(() => {
+        auth.signOut(() => {
+            history.push('/');
+        });
+    }, []);
+
+    const handleCheckAuth = useMemo(() => {
+        console.log(auth);
+        if (auth.isAuthenticated) {
+            return (
+                <>
+                    <div className="nav-item has-list">
+                        <Link to="/user/profile">{auth.user?.username}</Link>
+                        <div className="nav-item__list" >
+                            <Link className="nav-item__child" to="/auth/login">Login</Link>
+                            <Link className="nav-item__child" to="/user/profile">Profile</Link>
+                            <div className="nav-item__child" to="/auth/logout"
+                                onClick={handleLogout}
+                            >Logout</div>
+                        </div>
+                    </div>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <Link className="nav-item" to="/auth/login">Login</Link>
+                    <div className="space-dot"></div>
+                    <Link className="nav-item" to="/auth/register">Register</Link>
+                </>
+            )
+        }
+    }, [auth]);
+
     return (
         <Header>
             <Nav>
@@ -23,23 +59,7 @@ export default function HomePage() {
                 </div>
             </Nav>
             <Nav className="auth">
-                {(() => {
-                    if (auth.isAuthenticated) {
-                        return (
-                            <>
-                                <Link className="nav-item">{auth.user.username}</Link>
-                            </>
-                        );
-                    } else {
-                        return (
-                            <>
-                                <Link className="nav-item" to="/auth/login">Login</Link>
-                                <div className="space-dot"></div>
-                                <Link className="nav-item" to="/auth/register">Register</Link>
-                            </>
-                        )
-                    }
-                })()}
+                {handleCheckAuth}
             </Nav>
         </Header>
     );

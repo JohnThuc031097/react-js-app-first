@@ -22,8 +22,8 @@ module.exports = {
         "react-hooks"
     ],
     "rules": {
-        "no-unused-vars": "warn",
+        "no-unused-vars": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "off"
     }
 };

@@ -8,7 +8,7 @@ export default function AuthLoginPage() {
     const location = useLocation();
     const auth = useAuth();
 
-    const { from } = location.state || { from: { pathname: '/auth/login' } };
+    const { from } = location.state || { from: { pathname: '/' } };
     const handleLogin = () => {
         auth.signIn(() => {
             history.replace(from)

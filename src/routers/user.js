@@ -3,8 +3,9 @@ import { UserProfilePage } from "../pages/user";
 
 const UserRoute = {
     UserProfileRoute: {
+        auth: true,
         path: '/user/profile',
-        noAuthToPath: '/auth/login',
+        pathAuth: '/auth/login',
         component: UserProfilePage
     }
 };

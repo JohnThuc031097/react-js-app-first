@@ -1,32 +1,16 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useMemo } from "react";
+import { useAuth } from "../hooks";
 // Components
 import { AuthRedirect } from "./../components/core/auth";
 
 export function RouteLoad({ routes }) {
-    let routesArray = [];
-    for (const key in routes) {
-        routesArray.push(routes[key]);
+    const auth = useAuth();
+    const RenderRoute = (routes) => {
+        let routesArray = [];
+        for (const key in routes) {
+            routesArray.push(routes[key]);
+        }
+        return routesArray.map((route, i) => (<AuthRedirect key={i} {...route} />));
     }
-    return routesArray.map((route, i) => (<RouteSub key={i} {...route} />));
+    return useMemo(() => RenderRoute(routes), [auth.isAuthenticated]);
 }
-
-function RouteSub(route) {
-    return (
-        <AuthRedirect noAuthToPath={route.noAuthToPath}>
-            <route.component routes={route.routes} />
-        </AuthRedirect>
-    );
-}
-
-// function RouteSub(route) {
-//     return (
-//         <Route
-//             exact
-//             path={route.path}
-//             render={(routeProps) => (
-//                 <route.component {...routeProps} routes={route.routes} />
-//             )}
-//         />
-//     );
-// }

@@ -5,7 +5,7 @@ export default function AuthSignOut(resolve, reject) {
             setTimeout(() => {
                 console.log('Logged out !');
                 resolve();
-            }, 2000);
+            }, 500);
         } catch (error) {
             reject(error);
         }

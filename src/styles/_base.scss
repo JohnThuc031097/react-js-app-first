@@ -35,15 +35,15 @@
         border-radius: 3px;
     }
 }
-@mixin FormTitle($name, $font-size: 20px, $font-weight: 600) {
-    .form-#{$name}__title {
+@mixin FormTitle($font-size: 20px, $font-weight: 600) {
+    .form-title {
         font-size: $font-size;
         font-weight: $font-weight;
         margin: 20px 0;
     }
 }
-@mixin FormGroup($name, $width: 300px) {
-    .form-#{$name}__group {
+@mixin FormGroup($width: 300px) {
+    .form-group {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -51,14 +51,14 @@
         margin-bottom: 10px;
     }
 }
-@mixin FormLabel($name) {
-    .form-#{$name}__label {
+@mixin FormLabel() {
+    .form-label {
         font-weight: 600;
         margin: 5px 0;
     }
 }
-@mixin FormInput($name, $font-size: 14px) {
-    .form-#{$name}__input {
+@mixin FormInput($font-size: 14px) {
+    .form-input {
         font-size: $font-size;
         padding: 10px 10px;
         border: 1px solid rgb(226, 221, 221);

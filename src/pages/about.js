@@ -1,14 +1,14 @@
 import React from "react";
 // Components UI
-import { ComponentServices } from "../services";
+import { UiServices } from "../services";
 
 export default function AboutPage() {
     return (
         <>
-            <ComponentServices.Public.Header />
-            <ComponentServices.Public.Container>
+            <UiServices.Public.Header />
+            <UiServices.Public.Container>
                 <h1>ABOUT</h1>
-            </ComponentServices.Public.Container>
+            </UiServices.Public.Container>
         </>
     );
 }

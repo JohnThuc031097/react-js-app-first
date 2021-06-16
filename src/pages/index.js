@@ -7,7 +7,6 @@ import * as User from "./user";
 export {
     HomePage,
     AboutPage,
-
     Auth,
     User,
 }

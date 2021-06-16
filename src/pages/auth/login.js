@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 // Services
-import { HookServices, ComponentServices } from "../../services";
+import { HookServices, UiServices } from "../../services";
 
 export default function AuthLoginPage() {
     const history = useHistory();
@@ -17,8 +17,8 @@ export default function AuthLoginPage() {
 
     return (
         <>
-            <ComponentServices.Public.Header />
-            <ComponentServices.Public.Container>
+            <UiServices.Public.Header />
+            <UiServices.Public.Container>
                 <div id="formLogin">
                     <form className="form-login">
                         <div className="form-login__title">Login to Test</div>
@@ -37,7 +37,7 @@ export default function AuthLoginPage() {
                         </div>
                     </form>
                 </div>
-            </ComponentServices.Public.Container>
+            </UiServices.Public.Container>
         </>
     );
 }

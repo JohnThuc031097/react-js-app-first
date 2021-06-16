@@ -1,22 +1,18 @@
 import React from "react";
 // React Route DOM
 import { BrowserRouter, Switch } from "react-router-dom";
-// Routes
-import Routes from "./routers";
-// Utils
-import { RouteLoad } from "./utils/route";
-// Providers
-import { AuthProvider } from "./providers";
+// Services
+import { ProviderServices, DomainServices, RouteServices } from "./services";
 
 function App() {
     return (
-        <AuthProvider>
+        <ProviderServices.AuthProvider>
             <BrowserRouter>
                 <Switch>
-                    <RouteLoad routes={Routes} />
+                    <DomainServices.Route.RouteLoad routes={RouteServices.Routes} />
                 </Switch>
             </BrowserRouter>
-        </AuthProvider>
+        </ProviderServices.AuthProvider>
     );
 }
 

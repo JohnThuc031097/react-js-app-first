@@ -1,14 +1,14 @@
 import React from "react";
 // Services
-import { ComponentServices } from "../../services";
+import { UiServices } from "../../services";
 
 export default function AuthRegisterPage() {
     return (
         <>
-            <ComponentServices.Public.Header />
-            <ComponentServices.Public.Container>
+            <UiServices.Public.Header />
+            <UiServices.Public.Container>
                 <h1>REGISTER</h1>
-            </ComponentServices.Public.Container>
+            </UiServices.Public.Container>
         </>
     );
 }

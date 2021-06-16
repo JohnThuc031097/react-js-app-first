@@ -4,7 +4,7 @@ import { PageServices } from "../services";
 import AuthRoute from "./auth";
 import UserRoute from "./user";
 
-const Routes = {
+export const Routes = {
     IndexRoute: {
         path: ['/', '/home'],
         component: PageServices.HomePage
@@ -16,5 +16,3 @@ const Routes = {
     ...AuthRoute,
     ...UserRoute,
 }
-
-export default Routes;
